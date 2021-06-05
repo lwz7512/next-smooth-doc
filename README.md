@@ -3,6 +3,8 @@
 @2021/06/04
 
 
+> A minimal doc generator based on Next.js & mdx.
+
 Migrated from [smooth DOC](https://smooth-doc.com/) in 4 days.
 
 In order to compare the framework difference, apparently, using Nextjs are more enjoyable and easy to implement.

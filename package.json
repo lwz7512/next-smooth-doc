@@ -1,9 +1,11 @@
 {
-  "name": "with-mdx-remote",
+  "name": "next-smooth-doc",
+  "author": "lwz7512@gmail.com",
   "version": "1.0.0",
+  "description": "A minimal doc generator based on Next.js & mdx.",
   "scripts": {
     "dev": "next",
-    "dev:watch": "next-remote-watch ./posts",
+    "dev:watch": "next-remote-watch ./docs",
     "build": "next build",
     "export": "next export",
     "start": "serve out"
