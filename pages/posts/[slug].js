@@ -7,7 +7,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import path from 'path'
 import CustomLink from '../../components/CustomLink'
-import Layout from '../../components/Layout'
+// import Layout from '../../components/Layout'
+
+import PageLayout from '../../components/PageLayout'
+
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
 
 // Custom components/renderers to pass to MDX.
@@ -25,7 +28,7 @@ const components = {
 
 export default function PostPage({ source, frontMatter }) {
   return (
-    <Layout>
+    <PageLayout >
       <header>
         <nav>
           <Link href="/">
@@ -35,13 +38,8 @@ export default function PostPage({ source, frontMatter }) {
       </header>
       <div className="post-header">
         <h1>{frontMatter.title}</h1>
-        {frontMatter.description && (
-          <p className="description">{frontMatter.description}</p>
-        )}
       </div>
-      <main>
-        <MDXRemote {...source} components={components} />
-      </main>
+      <MDXRemote {...source} components={components} />
 
       <style jsx>{`
         .post-header h1 {
@@ -55,7 +53,7 @@ export default function PostPage({ source, frontMatter }) {
           opacity: 0.6;
         }
       `}</style>
-    </Layout>
+    </PageLayout>
   )
 }
 
@@ -83,7 +81,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths
+  const paths = postFilePaths()
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js
