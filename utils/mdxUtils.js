@@ -15,9 +15,7 @@ export const postFilePaths = () => fs
 
 
 export const postDocPaths = () => {
-  const paths = []
-  sideMenuFiles.forEach(section => paths.push(...section.children))
-  return paths
+  return sideMenuFiles.flatMap(section => section.children)
 }
 
 export const sideMenuItems = () => {
